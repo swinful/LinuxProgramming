@@ -1,0 +1,44 @@
+Chapter 11: Processes and Signals
+---
+
+What is a Process?
+
+  A process is a task created on a system by the execution of a program. This
+  program may be a piece of compiled source code or an intrepeted script that
+  provides instructions to the system on what it should do. Once a process is
+  created it will need and will have allocated to it vital system resources.
+  Some of these resources include CPU, memory and disk space to do anything
+  useful. 
+
+Process Characteristics
+
+  In memory a process is divided into segments
+  Local various are placed on the stack.
+  Data structures allocated at runtime are placed on the heap
+
+  States:
+
+    1. Once first created a process is in the New-State
+    2. Once ready to run the process is moved into the Ready-State
+    3. Once execution starts on the CPU the process is moved into the Running-State
+    4. 
+
+What are file descriptors?
+
+  Unix systems by default have three file descriptors that correspond to streams
+  used for reading/writting. Additional file descriptors may be created as
+  needed based on need. The default file descriptors are:
+
+    FD 1 : Used for standard input
+    FD 2 : Used for standard output
+    FD 3 : Used for error reporting
+
+  Which are defined as non-negative integers for the streams they represnet. 
+
+Describe how exec works?
+
+  When a child process is spawned from a parent process, that child may load a
+  different program into memory that replaces its parent. Exec works by spawning
+  a new parent process that is not the child of the process who launched it.
+
+
