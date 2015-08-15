@@ -42,3 +42,27 @@ Describe how exec works?
   a new parent process that is not the child of the process who launched it.
 
 
+Replacing a Process Image
+
+  When the 'system' command is executed, it spawns a new process. To prevent a
+  new process from being created a call to one of the exec family of functions
+  is required.
+
+  An 'exec' function once called will replace the current process with a new
+  process specified by the path or file argument. Below are lists of the exec
+  family of functions: 
+
+    /** 
+     * The below functions take a variable number of arguments ending with a
+     * null pointer (0) 
+     **/
+    int execl   (const char *path, const char *argv0, ..., (char *)0);
+    int execlp  (const char *file, const char *argv0, ..., (char *)0);
+    int execle  (const char *path, const char *argv0, ..., (char *)0, char *const envp[]);
+
+    int execv   (const char *path, char *const argv[]);
+    int execvp  (const char *file, char *const argv[]);
+    int execve  (const char *path, char *const argv[], char *const envp[]);
+    int execve  (const char *path, char *const argv[], char *const envp[]);
+
+
