@@ -1,4 +1,3 @@
-
 # Filename: GNUmakefile
 # Author: WINFUL Samuel A. <samuel@winful.com>
 #
@@ -28,11 +27,15 @@ all : $(EXECS)
 chap11_% : chap11_%.o
 	@echo '===>>> Compiling...'
 	$(CC) -o $@ $?
+	@echo ''
 
 # Disable the linker (-c) and just generate object(.o) files from their sources.
 %.o : %.c
 	@echo '===>>> Generating objects ...'
 	$(CC) -c $?
+	@echo ''
 
 clean:
-	@rm *.o chap11_*[^.c]
+	@echo '===>>> Cleaning extraneous files...'
+	@rm chap11_*[^.c]
+
