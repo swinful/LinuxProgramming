@@ -19,18 +19,13 @@
 #   $< - The name of the first prerequisite.
 #   $? - The names of all the prerequisites newer than the target.
 #
-# %.o : %.c
 
 CC = cc
 EXECS = chap11_system1 chap11_execlp
 
 all : $(EXECS)
 
-chap11_execlp : chap11_execlp.o
-	@echo '===>>> Compiling...'
-	$(CC) -o $@ $?
-
-chap11_system1 : chap11_system1.o
+chap11_% : chap11_%.o
 	@echo '===>>> Compiling...'
 	$(CC) -o $@ $?
 
@@ -40,4 +35,4 @@ chap11_system1 : chap11_system1.o
 	$(CC) -c $?
 
 clean:
-	@rm *.o chap11_system1
+	@rm *.o chap11_*[^.c]
