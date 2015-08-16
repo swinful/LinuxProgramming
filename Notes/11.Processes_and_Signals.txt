@@ -24,6 +24,7 @@ Process Characteristics
     4. 
 
 What are file descriptors?
+---
 
   Unix systems by default have three file descriptors that correspond to streams
   used for reading/writting. Additional file descriptors may be created as
@@ -36,6 +37,7 @@ What are file descriptors?
   Which are defined as non-negative integers for the streams they represnet. 
 
 Describe how exec works?
+---
 
   When a child process is spawned from a parent process, that child may load a
   different program into memory that replaces its parent. Exec works by spawning
@@ -43,6 +45,7 @@ Describe how exec works?
 
 
 Replacing a Process Image
+---
 
   When the 'system' command is executed, it spawns a new process. To prevent a
   new process from being created a call to one of the exec family of functions
@@ -69,3 +72,15 @@ Replacing a Process Image
   occurs. If an error occurs the error variable 'errno' is set and the exec
   function returns -1.
 
+
+Duplicating a Process Image
+---
+
+  Calling one of the six exec functions will replace the current thread of
+  execution. Sometimes, instead of replace we may need to duplicate the current
+  thread of execution. This can be done by utiliting both one of the six exec
+  functions in combination with 'fork()'.
+
+  The fork function will duplicate the current thread of execution, retaining
+  some of the same attributes of the original program. However, the duplicated
+  thread will have its own data space, environment, and file descriptors.
