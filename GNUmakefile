@@ -20,7 +20,7 @@
 #
 
 CC = cc
-EXECS = chap11_system1 chap11_execlp
+EXECS = chap11_system1 chap11_pexec
 
 all : $(EXECS)
 

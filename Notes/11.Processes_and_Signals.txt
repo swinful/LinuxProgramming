@@ -65,4 +65,7 @@ Replacing a Process Image
     int execve  (const char *path, char *const argv[], char *const envp[]);
     int execve  (const char *path, char *const argv[], char *const envp[]);
 
+  When exec functions are called, they generally don't return unless an error
+  occurs. If an error occurs the error variable 'errno' is set and the exec
+  function returns -1.
 
