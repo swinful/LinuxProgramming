@@ -37,6 +37,5 @@ chap11_% : chap11_%.o
 
 clean:
 	@echo '===>>> Cleaning extraneous files...'
-	@rm *.o
-	@rm $(EXECS)
+	@rm *.o chap11_system1 chap11_pexec
 
