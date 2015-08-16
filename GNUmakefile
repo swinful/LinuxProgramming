@@ -21,17 +21,23 @@
 #
 # %.o : %.c
 
-SRCS = chap11_system1.c
-OBJS = chap11_system1.o
+CC = cc
+EXECS = chap11_system1 chap11_execlp
 
-chap11_system1 : $(OBJS)
+all : $(EXECS)
+
+chap11_execlp : chap11_execlp.o
 	@echo '===>>> Compiling...'
-	g++ -o $@ $?
+	$(CC) -o $@ $?
+
+chap11_system1 : chap11_system1.o
+	@echo '===>>> Compiling...'
+	$(CC) -o $@ $?
 
 # Disable the linker (-c) and just generate object(.o) files from their sources.
-$(OBJS) : $(SRCS)
+%.o : %.c
 	@echo '===>>> Generating objects ...'
-	g++ -c $^
+	$(CC) -c $?
 
 clean:
 	@rm *.o chap11_system1
