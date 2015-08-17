@@ -20,7 +20,7 @@ int main() {
    * arg3: The program arguments.
    * arg4: The null terminator.
    **/
-  execlp("ps", "ps", "axl", 0);
+  execlp("ps", "ps", "axl", (char *)0);
 
   printf("Done.\n");
 
