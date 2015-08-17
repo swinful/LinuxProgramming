@@ -20,7 +20,7 @@
 #
 
 CC = cc
-EXECS = chap11_system1 chap11_pexec
+EXECS = chap11_system1 chap11_pexec chap11_fork1
 
 all : $(EXECS)
 
@@ -37,5 +37,5 @@ chap11_% : chap11_%.o
 
 clean:
 	@echo '===>>> Cleaning extraneous files...'
-	@rm *.o chap11_system1 chap11_pexec
+	@rm *.o chap11_system1 chap11_pexec chap11_fork
 
