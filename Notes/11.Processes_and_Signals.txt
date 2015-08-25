@@ -77,10 +77,16 @@ Duplicating a Process Image
 ---
 
   Calling one of the six exec functions will replace the current thread of
-  execution. Sometimes, instead of replace we may need to duplicate the current
-  thread of execution. This can be done by utiliting both one of the six exec
-  functions in combination with 'fork()'.
+  execution. Sometimes, instead of replacing the current thread of execution we
+  may need to duplicate the current thread of execution. This is done with
+  fork().
 
   The fork function will duplicate the current thread of execution, retaining
   some of the same attributes of the original program. However, the duplicated
   thread will have its own data space, environment, and file descriptors.
+
+  For example, when fork is called all statements after the call to fork are
+  duplicated. Initially, when fork is called the parent process that called work
+  will receive a new pid that is used to identify the child process. Within the
+  duplicated thread, the call to fork returns 0 and this is how we know we are
+  within the child process.

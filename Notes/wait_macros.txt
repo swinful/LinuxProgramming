@@ -1,0 +1,24 @@
+
+Note: You can interpret the status information using macros defined in sys/wait.h,
+----- shown in the following table
+
++----------------------------------------------------------------------+
+| Macro                  | Description                                 |
++========================+=============================================+
+| WIFEXITED(stat_val)    | Nonzero if the child is terminated normally.|
++------------------------+---------------------------------------------+
+| WEXITSTATUS(stat_val)  | If WIFEXITED is nonzero, this returns child |
+|                        | exit code.                                  |
++------------------------+---------------------------------------------+
+| WIFSIGNALED(stat_val)  | Nonzero if the child is terminated on an    | 
+|                        | uncaught signal number.                     |
++------------------------+---------------------------------------------+
+| WTERMSIG(stat_val)d.   | If WIFSIGNALED is nonzero, this returns a   |
+|                        | signal number.                              |
++------------------------+---------------------------------------------+
+| WIFSTOPPED(stat_val)   | Nonzero if the child has stopped.           |
++-----------+----------------------------------------------------------+
+| WSTOPSIG(stat_val)     | If WIFSTOPPED is nonzero, this returns a    |
+|                        | signal number.                              |
++-----------+----------------------------------------------------------+
+

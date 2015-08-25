@@ -20,18 +20,18 @@
 #
 
 CC = cc
-EXECS = chap11_system1 chap11_pexec chap11_fork1
+EXECS = chap11_wait chap11_system1 chap11_pexec chap11_fork1
 
 all : $(EXECS)
 
 chap11_% : chap11_%.o
-	@echo '===>>> Compiling...'
+	@echo '===>>> Compiling ($@)...'
 	$(CC) -o $@ $?
 	@echo ''
 
 # Disable the linker (-c) and just generate object(.o) files from their sources.
 %.o : %.c
-	@echo '===>>> Generating objects ...'
+	@echo '===>>> Generating objects ($@)...'
 	$(CC) -c $?
 	@echo ''
 
