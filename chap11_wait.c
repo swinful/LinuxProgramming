@@ -1,4 +1,5 @@
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -27,7 +28,7 @@ int main() {
       exit(1);
     case 0:
       message = "This is the child";
-      n = 5;
+      n = 15;
       exit_code = 37;
       break;
     default:
@@ -42,6 +43,24 @@ int main() {
     sleep(1);
   }
 
-  return 0;
+  if ( pid != 0 ) { /* We are in the parent process */
+    int stat_val;
+    pid_t child_pid;
+
+    /**
+     * This will suspend execution of parent process until status information is
+     * evailable for the child process
+     **/
+    child_pid = wait(&stat_val);
+
+    printf("Child has finished: PID = %d\n", child_pid);
+    if ( WIFEXITED(stat_val) ) {
+      printf("Child exited with code %d\n", WEXITSTATUS(stat_val));
+    } else {
+      printf("Child terminated abnormally\n");
+    }
+  }
+
+  exit(exit_code);
 }
 

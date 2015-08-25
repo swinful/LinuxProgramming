@@ -73,7 +73,7 @@ Replacing a Process Image
   function returns -1.
 
 
-Duplicating a Process Image
+Duplicating a Process Image -- Forking
 ---
 
   Calling one of the six exec functions will replace the current thread of
@@ -90,3 +90,18 @@ Duplicating a Process Image
   will receive a new pid that is used to identify the child process. Within the
   duplicated thread, the call to fork returns 0 and this is how we know we are
   within the child process.
+
+
+Zombie Processes
+---
+
+When a parent does not keep track of its child processes, its' children will
+become zombies. When a child terminates there is an association still kept with
+its parent, in the process table and is not freed immediately. The reason the
+child process is not immediately freed and kept in the process table is to
+prevent zombies. For example, when the parent waits on one of its children it
+needs to know the exit status of that child. However, if the parent exited
+before the child the correct association cannot be made. 
+
+Within the operating system a zombie process can be identified in the output of
+'ps' by the keyword 'defunct' or 'zombie'.

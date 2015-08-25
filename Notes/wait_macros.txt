@@ -1,6 +1,11 @@
 
-Note: You can interpret the status information using macros defined in sys/wait.h,
------ shown in the following table
+Note: You can interpret the status information using macros defined in
+      sys/wait.h, shown in the following table:
+
+
+               WAIT Macros
+               --------------------------
+               pid_t wait(int *stat_loc);
 
 +----------------------------------------------------------------------+
 | Macro                  | Description                                 |
