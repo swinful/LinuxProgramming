@@ -13,7 +13,7 @@ What is a Process?
 Process Characteristics
 
   In memory a process is divided into segments
-  Local various are placed on the stack.
+  Local variables are placed on the stack.
   Data structures allocated at runtime are placed on the heap
 
   States:
