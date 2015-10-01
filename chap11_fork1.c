@@ -14,30 +14,42 @@
 
 int main() {
 
-  pid_t pid;
-  char *message;
-  int n;
+  pid_t forked_pid;
+  printf("<*> Parent Process (PID=%d)\n", getpid());
+  sleep(3);
 
-  printf("fork program starting...\n");
-  pid = fork();
-  switch(pid) {
-    case -1:
-      perror("fork failed");
-      exit(1);
-    case 0:
-      message = "This is the child";
-      n = 5;
-      break;
-    default:
-      message = "This is the parent";
-      n = 3;
-      break;
-  }
+  printf("Calling fork() ...\n");
+  sleep(3);
+  forked_pid = fork();
+  printf("Forked ..., with (pid = %d)\n", forked_pid);
+  sleep(3);
+  printf("<**> Child Process (PID=%d)\n", getpid());
+  sleep(3);
 
-  for(; n > 0; n--) {
-    puts(message);
-    sleep(1);
-  }
+  // pid_t pid;
+  // char *message;
+  // int n;
+
+  // printf("fork program starting...\n");
+  // pid = fork();
+  // switch(pid) {
+  //   case -1:
+  //     perror("fork failed");
+  //     exit(1);
+  //   case 0:
+  //     message = "This is the child";
+  //     n = 5;
+  //     break;
+  //   default:
+  //     message = "This is the parent";
+  //     n = 3;
+  //     break;
+  // }
+
+  // for(; n > 0; n--) {
+  //   puts(message);
+  //   sleep(1);
+  // }
 
   return 0;
 }
